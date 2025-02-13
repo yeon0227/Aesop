@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesop</title>
+  <meta name="description" content="Aesop 클론코딩 사이트입니다.">
+  <meta name="author" content="강승연">
+  <meta property="og:title" content="Aesop">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="assets/images/og.webp">
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/layout.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./assets/js/main.js" defer></script>
+</head>
+<body>
+  <header id="header">
+    <div class="header-inner">
+      <h1 class="logo">
+        <a href="#">
+          <svg class="header-logo" focusable="false" width="150" height="35" role="img" tabindex="-1" viewBox="0 0 489.7 154.3">
+            <title aria-label="Aesop" id="aesop-:r18:">Aesop</title>
+            <g>
+              <path
+                d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+              </path>
+              <path
+                d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+              </path>
+              <path
+                d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+              </path>
+              <path
+                d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+              </path>
+              <path
+                d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+              </path>
+              <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+              <path
+                d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+              </path>
+            </g>
+          </svg>
+        </a>
+      </h1>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Skin Care</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Hair</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Hand & Body</span>
+              <div class="btn-plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  class="w-full h-full subnav-icon">
+                  <path d="M6 4L6 8" stroke="currentColor" stroke-linecap="round"></path>
+                  <path d="M8 6L4 6" stroke="currentColor" stroke-linecap="round"></path>
+                  <circle cx="6" cy="6" r="5.5" stroke="currentColor"></circle>
+                </svg>
+              </div>
+            </a>
+            <ul class="sub-list">
+              <li class="sub-item">
+                <a href="#">
+                  <span class="link">Discover Hand & Body</span>
+                </a>
+              </li>
+              <li class="sub-item">
+                <a href="#">
+                  <span class="link">New additions</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Kits & Travel</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Stores</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="btn-inner">
+        <button class="preorder-link btn--primary">
+          Add to your cart
+          <div class="link-icon">
+            <svg class="svgi" aria-labelledby="symbol-arrow-right-desc-1" role="group">
+              <use xlink:href="#svg-arrow-right"></use>
+            </svg>
+          </div>
+        </button>
+      </div>
+      <button class="btn-toggle">
+        <svg class="toggle-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="15.0015" cy="15.0009" r="14.5" stroke="currentColor"></circle>
+          <path d="M7.00098 13.0012L23.001 13.0007" stroke="currentColor" stroke-linecap="round"></path>
+          <path d="M7.00195 17.0012L23.002 17.0007" stroke="currentColor" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="line"></div>
+    <div class="percent">0</div>
+    <nav class="nav-mo">
+      <div class="group-head">
+        <h1 class="logo">
+          <a href="#">
+            <svg class="header-logo" focusable="false" width="150" height="35" role="img" tabindex="-1" viewBox="0 0 489.7 154.3">
+              <title aria-label="Aesop" id="aesop-:r18:">Aesop</title>
+              <g>
+                <path
+                  d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+                </path>
+                <path
+                  d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+                </path>
+                <path
+                  d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+                </path>
+                <path
+                  d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+                </path>
+                <path
+                  d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+                </path>
+                <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+                <path
+                  d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+                </path>
+              </g>
+            </svg>
+          </a>
+        </h1>
+        <button class="btn-toggle">
+          <svg class="close-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15.0015" cy="15.0009" r="14.5" stroke="currentColor"></circle>
+            <path d="M10 10L20 20" stroke="currentColor" stroke-linecap="round"></path>
+            <path d="M20 10L10 20" stroke="currentColor" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="group-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Skin Care</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Hair</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Discover Hand & Body</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">New additions</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Kits & Travel</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="title">
+              <span class="link">Stores</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="group-btn">
+        <button class="preorder-link btn--primary">
+          Add to your cart
+          <div class="link-icon">
+            <svg class="svgi" aria-labelledby="symbol-arrow-right-desc-1" role="group">
+              <use xlink:href="#svg-arrow-right"></use>
+            </svg>
+          </div>
+        </button>
+      </div>
+      <div class="group-policy">
+        <div class="copy-area policy">
+          <small class="copy">© 2025. Aesop. All right reserved </small>
+        </div>
+        <div class="policy-area policy">
+          <a href="#" class="link">Terms</a>,
+          <a href="#" class="link">Privacy Policy</a>,
+          <a href="#" class="link">Cookies policy</a>
+        </div>
+        <div class="agency-area policy">
+          <a href="#" class="agency">Website by Obys</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main id="container">
+    <section class="sc-product">
+      <h2 class="blind">Aesop, Body Scrub</h2>
+      <div class="group-product">
+        <div class="bg-area">
+          <img src="./assets/images/intro_second_image_247f52f377.jpg" alt>
+        </div>
+        <div class="product-inner">
+          <div class="title-area">
+            <span class="title">A</span>
+            <span class="title">e</span>
+            <span class="title">s</span>
+            <span class="title">o</span>
+            <span class="title blank">p</span>
+            <span class="title">B</span>
+            <span class="title">o</span>
+            <span class="title">d</span>
+            <span class="title blank">y</span>
+            <span class="title">S</span>
+            <span class="title">c</span>
+            <span class="title">r</span>
+            <span class="title">u</span>
+            <span class="title">b</span>
+          </div>
+          <div class="sub-title-area">
+            <div class="round-text">
+              <span class="round"><span class="blind">round</span></span>
+              <span class="text">Improving your skin & body</span>
+            </div>
+            <div class="performance-wrap">
+              <ul class="perform-list">
+                <li class="perform-item">
+                  <div class="perform">
+                    <div class="perform-img"><img class="img-inner" src="./assets/images/icon_air_bc40ab3995.svg"
+                        alt="'Air purification' icon img"></div>
+                    <span class="perform">Clean cleansing</span>
+                  </div>
+                </li>
+                <li class="perform-item">
+                  <div class="perform">
+                    <div class="perform-img"><img class="img-inner" src="./assets/images/icon_sun_6288d5900f.svg"
+                      alt="'Full spectrum lighting' icon img"></div>
+                      <span class="perform">Zero exfoliation</span>
+                    </div>
+                  </li>
+                <li class="perform-item">
+                  <div class="perform">
+                    <div class="perform-img"><img class="img-inner" src="./assets/images/icon_alarm_9d18462ca1.svg"
+                        alt="'Red light therapy' icon img"></div>
+                    <span class="perform">Hydration</span>
+                  </div>
+                </li>
+              </ul>
+              <span class="year">© 2025</span>
+            </div>
+          </div>
+          <div class="logo-area">
+            <svg aria-labelledby="aesop-:r18:" class="product-logo cursor-poiner" data-testid="data-testid-Icon"
+              focusable="false" height="55" role="img" tabindex="-1" viewBox="0 0 489.7 154.3" width="213">
+              <title aria-label="Aesop" id="aesop-:r18:">Aesop</title>
+              <g>
+                <path
+                  d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+                </path>
+                <path
+                  d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+                </path>
+                <path
+                  d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+                </path>
+                <path
+                  d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+                </path>
+                <path
+                  d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+                </path>
+                <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+                <path
+                  d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+                </path>
+              </g>
+            </svg>
+          </div>
+          <div class="img-area">
+            <div class="prod-inner">
+              <img src="./assets/images/intro_prod2.avif" alt class="prod prod1">
+              <img src="./assets/images/intro_prod1.avif" alt class="prod prod2">
+            </div>
+          </div>
+          <div class="product-bottom">
+            <div class="desc-area">
+              <span class="desc">Bringing moisture</span>
+              <span class="desc">and moisturizing</span>
+              <span class="desc">inside your skin.</span>
+            </div>
+            <div class="scroll-area">
+              <div class="scroll-text">
+                <div class="marquee-text">Scroll Down</div>
+              </div>
+              <div class="round-text">
+                <span class="round"><span class="blind">round</span></span>
+                <span class="text">Aesop</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-bott-bg"></div>
+        </div>
+      </div>
+      <div class="group-desc">
+        <div class="sticky-wrapper">
+          <div class="sticky">
+            <div class="bg-area">
+              <img src="./assets/images/image03_322cdb0c37.jpg" alt class="bg">
+            </div>
+            <ul class="text-list">
+              <li class="text-item">
+                <div class="text-inner">
+                  <span class="txt-wrap"><span class="txt txt1">Aesop stores support</span></span>
+                  <span class="txt-wrap"><span class="txt txt2">local charities through</span></span>
+                  <span class="txt-wrap"><span class="txt txt3">product donations.</span></span>
+                </div>
+              </li>
+              <li class="text-item">
+                <div class="text-inner">
+                  <span class="txt-wrap"><span class="txt txt1">Employees can join</span></span>
+                  <span class="txt-wrap"><span class="txt txt2">a matched-giving</span></span>
+                  <span class="txt-wrap"><span class="txt txt3">programme.</span></span>
+                </div>
+              </li>
+              <li class="text-item">
+                <div class="text-inner">
+                  <span class="txt-wrap"><span class="txt txt1">The Aesop Foundation</span></span>
+                  <span class="txt-wrap"><span class="txt txt2">reflects core values</span></span>
+                  <span class="txt-wrap"><span class="txt txt3">of the company.</span></span>
+                </div>
+              </li>
+              <li class="text-item">
+                <div class="text-inner">
+                  <span class="txt-wrap"><span class="txt txt1">It builds relationships</span></span>
+                  <span class="txt-wrap"><span class="txt txt2">beyond financial</span></span>
+                  <span class="txt-wrap"><span class="txt txt3">support.</span></span>
+                </div>
+              </li>
+            </ul>
+            <ul class="desc-list">
+              <li class="desc-item">
+                <div class="desc-inner">
+                  <div class="custom-icon">
+                    <img class="icon" src="./assets/images/icon_tree_30e1278c4d.svg" alt="icon tree img">
+                  </div>
+                  <div class="desc-wrap">
+                    <span class="desc">
+                      Together, we can cultivate inclusive societies where everyone can participate, feel welcome and be connected. 
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li class="desc-item">
+                <div class="desc-inner">
+                  <div class="custom-icon">
+                    <img src="./assets/images/icon_leaf_fe76763f2e.svg" alt="icon leaf img">
+                  </div>
+                  <div class="desc-wrap">
+                    <span class="desc">
+                      We will take action to nurture more equitable and enduring ways in which to relate to the Earth. 
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li class="desc-item">
+                <div class="desc-inner">
+                  <div class="custom-icon">
+                    <img src="./assets/images/icon_door_0d92b73ba2.svg" alt="icon door img">
+                  </div>
+                  <div class="desc-wrap">
+                    <span class="desc">
+                      Together we can help create a safer world where everyone is valued, protected from harm and lives a long, healthy life.
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li class="desc-item">
+                <div class="desc-inner">
+                  <div class="custom-icon">
+                    <img src="./assets/images/icon_heart_b96b30a670.svg" alt="icon heart img">
+                  </div>
+                  <div class="desc-wrap">
+                    <span class="desc">
+                      We believe in trust-based philanthropy and seek to support partners with unrestricted grants over multiple years.
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="group-performance">
+        <div class="sticky-wrap">
+          <div class="sticky">
+            <ul class="perform-list">
+              <li class="perform-item">
+                <div class="perform-inner">
+                  <div class="img-area">
+                    <img src="./assets/images/hydracream.avif" alt>
+                  </div>
+                </div>
+              </li>
+              <li class="perform-item">
+                <div class="perform-inner">
+                  <div class="img-area">
+                    <img src="./assets/images/handbalm.avif" alt>
+                  </div>
+                </div>
+              </li>
+              <li class="perform-item">
+                <div class="perform-inner">
+                  <div class="img-area">
+                    <img src="./assets/images/shampoo.avif" alt>
+                  </div>
+                </div>
+              </li>
+              <li class="perform-item">
+                <div class="perform-inner">
+                  <div class="img-area">
+                    <img src="./assets/images/parfum.avif" alt>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="desc-area">
+              <div class="connect-svg">
+                <svg class="rotated-icon" width="73" height="72"
+                  viewBox="0 0 73 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="opacity-20"
+                    d="M71.5 36C71.5 16.9462 56.0538 1.5 37 1.5V0.5C56.6061 0.5 72.5 16.3939 72.5 36C72.5 55.6061 56.6061 71.5 37 71.5V70.5C56.0538 70.5 71.5 55.0538 71.5 36Z"
+                    fill="currentColor"></path>
+                  <path class="opacity-20"
+                    d="M20.7361 5.56636C9.88155 11.3794 2.5 22.8281 2.5 36C2.5 49.172 9.88155 60.6207 20.7361 66.4337L20.2639 67.3152C9.09741 61.3351 1.5 49.5552 1.5 36C1.5 22.4449 9.09741 10.665 20.2639 4.68481L20.7361 5.56636Z"
+                    fill="currentColor"></path>
+                  <path class="half-circle-right" d="M37 71C56.33 71 72 55.33 72 36C72 16.67 56.33 1 37 1"
+                    stroke="currentColor"></path>
+                  <path class="half-circle-left"
+                    d="M20.5 5.12561C9.48948 11.0222 2 22.6365 2 36C2 49.3636 9.48948 60.9779 20.5 66.8745"
+                    stroke="currentColor"></path>
+                  <path class="inner-square"
+                    d="M47.5 22V22C49.433 22 51 23.567 51 25.5V25.5M26.5 22V22C24.567 22 23 23.567 23 25.5V25.5M47.5 50V50C49.433 50 51 48.433 51 46.5V46.5M26.5 50V50C24.567 50 23 48.433 23 46.5V46.5"
+                    stroke="currentColor"></path>
+                  <circle cx="37" cy="36" r="7" fill="currentColor"></circle>
+                  <circle cx="2" cy="36" r="2" fill="currentColor"></circle>
+                </svg>
+              </div>
+              <ul class="desc-list">
+                <li class="desc-item">
+                  <div class="desc-box">
+                    <div class="custom-icon">
+                      <img src="./assets/images/icon_adjust_settings_8cec60f293.svg" alt="icon adjust img">
+                    </div>
+                    <div class="desc-wrap">
+                      <span class="desc-title">Skin Care</span>
+                      <span class="desc-text">
+                        Skin changes with environment, lifestyle, and diet. Our products cater to diverse needs, guiding you to optimal skin health.
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="desc-item">
+                  <div class="desc-box">
+                    <div class="custom-icon">
+                      <img src="./assets/images/icon_sun_6288d5900f.svg" alt="icon sun img">
+                    </div>
+                    <div class="desc-wrap">
+                      <span class="desc-title">Hand & Body</span>
+                      <span class="desc-text">
+                        Our hand and body formulations cleanse, hydrate, and elevate daily routines, turning the ordinary into something exceptional.
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="desc-item">
+                  <div class="desc-box">
+                    <div class="custom-icon">
+                      <img src="./assets/images/icon_alarm_9d18462ca1.svg" alt="icon alarm img">
+                    </div>
+                    <div class="desc-wrap">
+                      <span class="desc-title">Hair</span>
+                      <span class="desc-text">
+                        Our approach to hair is honest and straightforward: a healthy scalp is the foundation for healthy hair.
+                      </span>
+                    </div>
+                  </div>
+                </li>
+                <li class="desc-item">
+                  <div class="desc-box">
+                    <div class="custom-icon">
+                      <img src="./assets/images/icon_air_bc40ab3995.svg" alt="icon air img">
+                    </div>
+                    <div class="desc-wrap">
+                      <span class="desc-title">Fragrance</span>
+                      <span class="desc-text">
+                        Our Eaux de Parfum redefines Floral, Fresh, Woody, and Opulent scents with nuance and creativity, challenging traditional norms.
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sc-order1">
+      <h2 class="blind">Pre-Order Now</h2>
+      <div class="sticky-wrapper">
+        <div class="sticky">
+          <div class="group-intro">
+            <div class="marquee">
+              <div class="marquee-wrapper">
+                <div class="marquee-con">Healthy Cosmetics&nbsp;</div>
+                <div class="marquee-con">Healthy Cosmetics&nbsp;</div>
+                <div class="marquee-con">Healthy Cosmetics&nbsp;</div>
+              </div>
+            </div>
+          </div>
+          <div class="group-mask">
+            <img src="./assets/images/intro_bg.jpg" alt>
+          </div>
+          <div class="order-inner">
+            <div class="group-order">
+              <div class="order-box">
+                <div class="img-area">
+                  <img src="./assets/images/intro_order_img.avif" alt>
+                </div>
+                <div class="info-area">
+                  <div class="icon-inner">
+                    <svg aria-labelledby="aesop-:r18:" class="header-logo cursor-poiner" data-testid="data-testid-Icon"
+                    focusable="false" width="150" height="300" role="img" tabindex="-1" viewBox="0 0 489.7 154.3">
+                      <title aria-label="Aesop" id="aesop-:r18:">Aesop</title>
+                      <g>
+                        <path
+                          d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+                        </path>
+                        <path
+                          d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+                        </path>
+                        <path
+                          d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+                        </path>
+                        <path
+                          d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+                        </path>
+                        <path
+                          d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+                        </path>
+                        <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+                        <path
+                          d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+                        </path>
+                      </g>
+                    </svg>
+                  </div>
+                  <h3 class="info-title">Body wash</h3>
+                  <div class="info-desc">
+                    Aromatic daily cleansers to enhance the act of washing
+                  </div>
+                  <div class="info-price">
+                    <div class="price-left">Aesop price: $130.00</div>
+                    <div class="price-right">
+                      Due Today: $125.00
+                    </div>
+                  </div>
+                  <div class="info-color">
+                    <ul class="color-list">
+                      <li class="color-item">
+                        <div class="con">
+                          <div class="color color1"></div>
+                          <span class="text-area">Woody / Trio</span>
+                        </div>
+                      </li>
+                      <li class="color-item">
+                        <div class="con">
+                          <div class="color color2"></div>
+                          <span class="text-area">Hwyl / Ensemble</span>
+                        </div>
+                      </li>
+                      <li class="color-item">
+                        <div class="con">
+                          <div class="color color3"></div>
+                          <span class="text-area">Citrus / Duo</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <button class="info-order preorder-link btn--primary">
+                    Add to your cart
+                    <span class="link-icon">
+                      <svg class="svgi " aria-labelledby="symbol-arrow-right-desc-5" role="group">
+                        <use xlink:href="#svg-arrow-right"></use>
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="info-policy">
+                    <span class="policy">All Aesop products are vegan.  
+                      <span class="point-btn link">Learn more</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="group-persent">
+              <span data-circle=""></span>
+              <span data-circle=""></span>
+              <span data-circle=""></span>
+              <div class="text-area">
+                <p class="txt1">Use Aesop cleanser</p>
+                <strong class="persent">
+                  <span class="font-mono">80.00%</span>
+                </strong>
+                <p class="txt2">
+                  to get rid of bacteria and have a pleasant day.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sc-info1">
+      <h2 class="blind">Info 1,2</h2>
+      <div class="group-info1">
+        <div class="head-area">
+          <div class="head-number">1.</div>
+          <h3 class="head-title">New additions</h3>
+        </div>
+        <div class="content-area">
+          <div class="info-wrap">
+            <strong class="title">Reverence Aromatique <br> Hand Wash</strong>
+            <div class="dl-list">
+              <dl class="dl-desc">
+                <dt class="type">
+                  <span class="type-circle">A</span>
+                </dt>
+                <dd class="desc">
+                  <span class="info-title">Aroma</span>
+                  <span class="info-desc">Woody, earthy, smoky</span>
+                </dd>
+              </dl>
+              <dl class="dl-desc">
+                <dt class="type">
+                  <span class="type-circle">B</span>
+                </dt>
+                <dd class="desc">
+                  <span class="info-title">Key ingredients</span>
+                  <span class="info-desc">Vetiver Root, Petitgrain, Bergamot Rind</span>
+                </dd>
+              </dl>
+              <dl class="dl-desc">
+                <dt class="type">
+                  <span class="type-circle">C</span>
+                </dt>
+                <dd class="desc">
+                  <span class="info-title">Discover the duet</span>
+                  <span class="info-desc">Reverence Duet</span>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="img-box">
+            <div class="img-wrap">
+              <img class="wash washFront" src="./assets/images/info1.avif" alt>
+              <img class="wash washBack" src="./assets/images/info1_2.avif" alt>
+            </div>
+          </div>
+          <div class="point-wrap">
+            <ul class="point-list">
+              <li class="point-item">
+                <a href="#" class="point">
+                  <div class="custom-icon">
+                    <img src="./assets/images/icon_flower_04e1b2632e.svg" alt="icon flower img">
+                  </div>
+                  <div class="text-box">
+                    Reduces allergy symptoms
+                  </div>
+                </a>
+              </li>
+              <li class="point-item">
+                <a href="#" class="point">
+                  <div class="custom-icon">
+                    <img src="./assets/images/icon_sun_dark_d8262c380c.svg" alt="icon sun dark img">
+                  </div>
+                  <div class="text-box">
+                    Removes viruses and bacteria
+                  </div>
+                </a>
+              </li>
+              <li class="point-item">
+                <a href="#" class="point">
+                  <div class="custom-icon">
+                    <img src="./assets/images/icon_remove_af064e69e4.svg" alt="icon remove img">
+                  </div>
+                  <div class="text-box">
+                    Thoroughly cleansed
+                  </div>
+                </a>
+              </li>
+              <li class="point-item">
+                <a href="#" class="point">
+                  <div class="custom-icon">
+                    <img src="./assets/images/icon_night_fa0a131ba0.svg" alt="icon night img">
+                  </div>
+                  <div class="text-box">
+                    Improves sleep
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <a href="#" class="point-btn link">
+              <span class="link-text">Read More About Health Benefits</span>
+              <span class="link-plus-svg">
+                <svg class="svgi">
+                  <use xlink:href="#svg-plus"></use>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="group-info2">
+        <div class="head-area">
+          <div class="head-number">2.</div>
+          <h3 class="head-title">Smart Skin Care Method</h3>
+        </div>
+        <div class="content-area">
+          <ol class="con-list">
+            <li class="con-item">
+              <div class="img-wrap">
+                <span class="order">A</span>
+                <video src="./assets/images/info2_video1.mp4" autoplay muted loop playsinline>
+                  sorry , your brower doesn't support embedded videos,
+                </video>
+              </div>
+              <div class="text-wrap">
+                <div class="round-text">
+                  <span class="round"></span>
+                  <em class="text">Immaculate Facial Tonic</em>
+                </div>
+                <p class="desc">
+                  <span class="text">A vitamin-rich, hydrating tonic</span>
+                  <span class="text">offering that helps</span>
+                </p>
+              </div>
+            </li>
+            <li class="con-item">
+              <div class="img-wrap">
+                <span class="order">B</span>
+                <video src="./assets/images/info2_video2.mp4" autoplay muted loop playsinline>
+                  sorry , your brower doesn't support embedded videos,
+                </video>
+              </div>
+              <div class="text-wrap">
+                <div class="round-text">
+                  <span class="round"><span class="blind">round</span></span>
+                  <em class="text">Resurrection Aromatique Hand Balm</em>
+                </div>
+                <p class="desc">
+                  <span class="text">A blend of botanicals</span>
+                  <span class="text">that delivers Hydration</span>
+                </p>
+              </div>
+            </li>
+            <li class="con-item">
+              <div class="img-wrap">
+                <span class="order">C</span>
+                <video src="./assets/images/info2_video3.mp4" autoplay muted loop playsinline>
+                  sorry , your brower doesn't support embedded videos,
+                </video>
+              </div>
+              <div class="text-wrap">
+                <div class="round-text">
+                  <span class="round"><span class="blind">round</span></span>
+                  <em class="text">B & Tea Balancing Toner</em>
+                </div>
+                <p class="desc">
+                  Refines pores, balances
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <section class="sc-order2">
+      <h2 class="blind">Pre-Order Now</h2>
+      <h3 class="group-title">
+        <span class="title">Extremely</span>
+        <span class="title">Clean</span>
+      </h3>
+      <div class="group-product">
+        <div class="product-inner">
+          <img src="./assets/images/order2_bodybalm.avif" alt>
+        </div>
+      </div>
+      <div class="group-order">
+        <div class="order-box">
+          <div class="img-area">
+            <img src="./assets/images/orderbox2.webp" alt>
+          </div>
+          <div class="info-area">
+            <div class="icon-inner">
+              <svg aria-labelledby="aesop-:r18:" class="header-logo cursor-poiner" data-testid="data-testid-Icon"
+              focusable="false" width="150" height="300" role="img" tabindex="-1" viewBox="0 0 489.7 154.3">
+                <title aria-label="Aesop" id="aesop-:r18:">Aesop</title>
+                <g>
+                  <path
+                    d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+                  </path>
+                  <path
+                    d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+                  </path>
+                  <path
+                    d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+                  </path>
+                  <path
+                    d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+                  </path>
+                  <path
+                    d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+                  </path>
+                  <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+                  <path
+                    d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+                  </path>
+                </g>
+              </svg>
+            </div>
+            <h3 class="info-title">Body Balm</h3>
+            <div class="info-desc">
+              A moisturising formulation with an uplifting extracts to soften and smooth the skin.
+            </div>
+            <div class="info-price">
+              <div class="price-left">Aesop price: $40.00</div>
+              <div class="price-right">
+                Due Today: $38.00
+              </div>
+            </div>
+            <div class="info-color">
+              <ul class="color-list">
+                <li class="color-item">
+                  <div class="con">
+                    <div class="color color1"></div>
+                    <span class="text-area">Woody / Trio</span>
+                  </div>
+                </li>
+                <li class="color-item">
+                  <div class="con">
+                    <div class="color color2"></div>
+                    <span class="text-area">Hwyl / Ensemble</span>
+                  </div>
+                </li>
+                <li class="color-item">
+                  <div class="con">
+                    <div class="color color3"></div>
+                    <span class="text-area">Citrus / Duo</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <button class="info-order preorder-link btn--primary">
+              Add to your cart
+              <span class="link-icon">
+                <svg class="svgi " aria-labelledby="symbol-arrow-right-desc-5" role="group">
+                  <use xlink:href="#svg-arrow-right"></use>
+                </svg>
+              </span>
+            </button>
+            <div class="info-policy">
+              <span class="policy">All Aesop products are vegan.  
+                <span class="point-btn link">Learn more</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sc-info2">
+      <h2 class="blind">Info 3</h2>
+      <div class="group-info3">
+        <div class="head-area">
+          <div class="head-number">3.</div>
+          <h3 class="head-title">Your nature is beautiful.</h3>
+        </div>
+        <div class="content-area">
+          <strong class="info-title">
+            <!-- History and culture honoured with an act of thanks -->
+            <span class="title">History and</span>
+            <span class="title">culture honoured</span>
+            <span class="title">with an act of thanks</span>
+          </strong>
+          <div class="info-img-wrap">
+            <img class="info-img" src="./assets/images/info3_img.avif" alt>
+          </div>
+          <did class="desc-wrap">
+            <p class="desc">
+              Throughout this special Chuseok celebration, the complimentary wrapping that came with every purchase in stores across Korea was done in the traditional Bojagi style. 
+            </p>
+            <p class="desc">
+              These markers of gratitude were made all the more unique by the lettering by Lee Jung Hwa printed on each ribbon and card: ‘Your nature is beautiful’—words from King Sejong himself.
+            </p>
+            <a href="#" class="point-link link">
+              <span class="link-text">Learn More</span>
+              <div class="link-plus-svg">
+                <svg class="svgi">
+                  <use xlink:href="#svg-plus"></use>
+                </svg>
+              </div>
+            </a>
+          </did>
+        </div>
+      </div>
+      <div class="group-benefit">
+        <strong class="info-title">Health Benefits</strong>
+        <div class="benefit-inner">
+          <ul class="benefit-list">
+            <li class="benefit-item">
+              <div class="custom-icon">
+                <img src="./assets/images/icon_painting_5e058b3862.svg" alt="icon painting img">
+              </div>
+              <p>Skin improvements</p>
+            </li>
+            <li class="benefit-item">
+              <div class="custom-icon">
+                <img src="./assets/images/icon_circle_cd0b4d6bfe.svg" alt="icon circle img">
+              </div>
+              <p>Decreases inflammation</p>
+            </li>
+            <li class="benefit-item">
+              <div class="custom-icon">
+                <img src="./assets/images/icon_water_dot_4eae47ec90.svg" alt="icon water dot img">
+              </div>
+              <p>Decreases hair loss</p>
+            </li>
+            <li class="benefit-item">
+              <div class="custom-icon">
+                <img src="./assets/images/icon_smile_f208bc3f81.svg" alt="icon smile img">
+              </div>
+              <p>Improves mood and stimulates positivity</p>
+            </li>
+          </ul>
+          <a href="#" class="point-btn link">
+            <span class="link-text">Read More About Health Benefits</span>
+            <span class="link-plus-svg">
+              <svg class="svgi">
+                <use xlink:href="#svg-plus"></use>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="group-design">
+        <div class="point-area">
+          <strong class="info-title">
+            <span class="title">Bar Soaps</span>
+            <span class="title">Polish Bar Soap</span>
+          </strong>
+          <div class="dl-list">
+            <dl class="dl-desc">
+              <dt class="type"><span class="type-circle">A</span></dt>
+              <dd class="desc">
+                The sculptural silhouette and the combination of elegant materials echo the aesthetic of
+                art pieces rather than high-tech products.
+              </dd>
+            </dl>
+            <dl class="dl-desc">
+              <dt class="type"><span class="type-circle">B</span></dt>
+              <dd class="desc">
+                Designed to brighten, cleanse and restore balance.
+              </dd>
+            </dl>
+            <dl class="dl-desc">
+              <dt class="type"><span class="type-circle">C</span></dt>
+              <dd class="desc">
+                Experience the perfect harmony of health and aesthetics with the ATMOS in your home.
+              </dd>
+            </dl>
+          </div>
+          <div class="info-order-short">
+            <span class="order-text">Add to your cart</span>
+            <button class="order-btn">
+              <svg class="svgi " aria-labelledby="symbol-arrow-right-desc-a" role="group">
+                <use xlink:href="#svg-arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-inner">
+          <div class="product-area">
+            <div class="lamp-inner">
+              <img class="light lightOff" src="./assets/images/soap_img1.avif"
+                alt="lamp draggable off img">
+              <img class="light lightOn" src="./assets/images/soap_img2.avif"
+                alt="lamp draggable on img">
+            </div>
+          </div>
+          <div class="light-area">
+            <svg class="drag-svg" width="70" height="287" viewBox="0 0 70 287"
+              fill="none" xmlns="http://www.w3.org/2000/svg" style="touch-action: pan-x;">
+              <path d="M36 1L36 177.5L36 285" stroke="#FCF6EC"></path>
+              <path d="M39 1L33 1" stroke="currentColor"></path>
+              <path d="M39 231H33" stroke="currentColor"></path>
+              <path d="M39 258H33" stroke="currentColor"></path>
+              <path d="M39 272H33" stroke="currentColor"></path>
+              <path d="M39 57H33" stroke="currentColor"></path>
+              <path d="M39 29H33" stroke="currentColor"></path>
+              <path d="M39 15L33 15" stroke="currentColor"></path>
+              <path d="M39 286H33" stroke="currentColor"></path>
+              <g class="cursor-grab"
+                style="transform: matrix(1, 0, 0, 1, 0, 109); translate: none; rotate: none; scale: none; transform-origin: 0px 0px; touch-action: pan-x; cursor: grab; user-select: none; z-index: 1004;"
+                data-svg-origin="0.5 108.5" transform="matrix(1,0,0,1,0,109)">
+                <circle cx="35" cy="143" r="34.5" fill="#372C27" stroke="currentColor" style="touch-action: pan-x;">
+                </circle>
+                <circle cx="35" cy="143" r="7" fill="currentColor" style="touch-action: pan-x;"></circle>
+                <circle cx="35" cy="143" r="6.5" stroke="currentColor" stroke-opacity="0.2"
+                  style="touch-action: pan-x;">
+                </circle>
+                <path
+                  d="M45.5 129V129C47.433 129 49 130.567 49 132.5V132.5M24.5 129V129C22.567 129 21 130.567 21 132.5V132.5M45.5 157V157C47.433 157 49 155.433 49 153.5V153.5M24.5 157V157C22.567 157 21 155.433 21 153.5V153.5"
+                  stroke="currentColor" style="touch-action: pan-x;"></path>
+              </g>
+            </svg>
+            <div class="text-inner">
+              <span class="text">
+                Hold and move
+                <span class="opacity-60"> to</span>
+              </span>
+              <span class="text">
+                <span class="opacity-60">change the soap</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sc-goodpoint">
+      <h2 class="blind">Good point 2</h2>
+      <div class="sticky">
+        <div class="grid">
+          <div class="left-wrapper">
+            <div class="title-wrap">
+              <strong class="head-title">A guide to</strong>
+              <strong class="head-title">combination skin</strong>
+            </div>
+            <ul class="text-list">
+              <li class="text-item">
+                <strong class="point-title">
+                  <span class="item-title">Combination skin</span>
+                  <span class="item-title">with a tendency</span>
+                  <span class="item-title">to oiliness</span>
+                </strong>
+                <p class="point-desc">
+                  <span class="item-desc">Cleansing combination skin involves</span>
+                  <span class="item-desc">removing excess sebum decongesting skin</span>
+                  <span class="item-desc">and restoring equilibrium.</span>
+                </p>
+              </li>
+              <li class="text-item">
+                <strong class="point-title">
+                  <span class="item-title">Combination skin</span>
+                  <span class="item-title">with a tendency to dryness</span>
+                </strong>
+                <p class="point-desc">
+                  <span class="item-desc">Where skin described</span>
+                  <span class="item-desc">as the combination type errs</span>
+                  <span class="item-desc">on the side of dryness or reactivity.</span>
+                </p>
+              </li>
+              <li class="text-item">
+                <strong class="point-title">
+                  <span class="item-title">Deep cleansing</span>
+                </strong>
+                <p class="point-desc">
+                  <span class="item-desc">Regular deep cleansing (up to twice weekly)</span>
+                  <span class="item-desc">is recommended to address excess oil,</span>
+                  <span class="item-desc">decongest pores and restore balance</span>
+                  <span class="item-desc">to combination skin.</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <ul class="img-list">
+            <li class="img-item">
+              <div class="bg-img">
+                <img src="./assets/images/goodpoint2_3.jpg" alt>
+              </div>
+            </li>
+            <li class="img-item">
+              <div class="bg-img">
+                <img src="./assets/images/goodpoint2_2.avif" alt>
+              </div>
+            </li>
+            <li class="img-item">
+              <div class="bg-img">
+                <img src="./assets/images/goodpoint2_1.jpg" alt>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="sc-info3">
+      <h2 class="blind">Info 4</h2>
+      <div class="group-info4">
+        <div class="head-area">
+          <div class="head-number">4.</div>
+          <h3 class="head-title">Notes on culture</h3>
+        </div>
+        <ul class="info-list">
+          <li class="info-item">
+            <div class="bg-wrap">
+              <img src="./assets/images/info4_1.avif" alt>
+            </div>
+            <button class="info-btn">Integrity</button>
+            <div class="text-wrap">
+              <div class="title-inner">
+                <strong class="title">We hold fast to</strong>
+                <strong class="title">an unwavering moral compass</strong>
+                <strong class="title">predicated on honesty, quality.</strong>
+              </div>
+              <span class="text">Our values</span>
+            </div>
+          </li>
+          <li class="info-item">
+            <div class="bg-wrap">
+              <img src="./assets/images/info4_3.avif" alt>
+            </div>
+            <button class="info-btn">Passion</button>
+            <div class="text-wrap">
+              <div class="title-inner">
+                <strong class="title">We apply energy</strong>
+                <strong class="title">and enthusiasm to all our activities</strong>
+                <strong class="title">personal needs </strong>
+              </div>
+              <span class="text">Our values</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="sc-order3">
+      <h2 class="blind">Add to your cart</h2>
+      <div class="title-wrapper">
+        <div class="group-title">
+          <strong class="title">Wonderful </strong>
+          <strong class="gradi-title">Combinations</strong>
+        </div>
+      </div>
+      <div class="group-product">
+        <div class="product-inner">
+          <div class="subtitle-area">
+            <div class="subtitle-inner">
+              <strong class="subtitle">Choose a hand cream</strong>
+              <strong class="subtitle">with a scent that suits you</strong>
+            </div>
+            <p class="desc">Intensely hydrating balm with botanical butters and oils for dry hands.</p>
+          </div>
+          <div class="product-wrap">
+            <div class="color-area">
+              <ul class="color-list">
+                <li data-tab="#hand1" class="color-item">
+                  <div class="con">
+                    <div class="flav flav1"></div>
+                    <div class="color-text">Eleos</div>
+                  </div>
+                </li>
+                <li data-tab="#hand2" class="color-item">
+                  <div class="con">
+                    <div class="flav flav2"></div>
+                    <div class="color-text">Resurrection</div>
+                  </div>
+                </li>
+                <li data-tab="#hand3" class="color-item">
+                  <div class="con">
+                    <div class="flav flav3"></div>
+                    <div class="color-text">Reverence</div>
+                  </div>
+                </li>
+              </ul>
+              <div class="info-order-short">
+                <span class="order-text">Add to your cart</span>
+                <button class="order-btn">
+                  <svg class="svgi " aria-labelledby="symbol-arrow-right-desc-a" role="group">
+                    <use xlink:href="#svg-arrow-right"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-area">
+              <div class="product-img">
+                <div class="img-inner">
+                  <div id="hand1" class="color color1 show"><img src="./assets/images/eleos.avif" alt></div>
+                  <div id="hand2" class="color color2"><img src="./assets/images/resurrection.avif" alt></div>
+                  <div id="hand3" class="color color3"><img src="./assets/images/reverence.avif" alt></div>
+                </div>
+              </div>
+              <div class="product-cm product-height">
+                <span class="cm height-text">2.4 oz</span>
+              </div>
+              <div class="product-cm product-width">
+                <span class="cm width-text">$33.00</span>
+              </div>
+            </div>
+            <div class="point-area">
+              <div class="point-title">Good Skin Feel</div>
+              <ul class="point-list">
+                <li class="point-item">
+                  <img src="./assets/images/icon_glass_2aca3a5293.svg" alt="icon glass img">
+                  <span class="desc">Nourished, soft and supple with a greaseless finish</span>
+                </li>
+                <li class="point-item">
+                  <img src="./assets/images/icon_wood_quality_0f5abf5187.svg" alt="icon wood quality img">
+                  <span class="desc">Nourished, supple, with a greaseless finish</span>
+                </li>
+                <li class="point-item">
+                  <img src="./assets/images/icon_mesh_0a8debb565.svg" alt="icon mesh img">
+                  <span class="desc">Mesh & brushed metal finish</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="order-inner">
+        <div class="group-bg">
+           <div class="cont-wrapper">
+             <video src="./assets/images/order3_bg.mp4" autoplay muted loop playsinline>
+              sorry , your brower doesn't support embedded videos,
+              </video>
+           </div>
+        </div>
+        <div class="group-marquee marquee">
+          <div class="marquee-wrapper">
+            <div class="marquee-con">Healthy Cosmetics&nbsp;</div>
+            <div class="marquee-con">Healthy Cosmetics&nbsp;</div>
+            <div class="marquee-con">Healthy Cosmetics&nbsp;</div>
+          </div>
+        </div>
+        <div class="group-order">
+          <div class="order-box box2">
+            <div class="info-area">
+              <div class="icon-inner">
+                <svg aria-labelledby="aesop-:r18:" class="header-logo cursor-poiner" data-testid="data-testid-Icon"
+                focusable="false" width="150" height="300" role="img" tabindex="-1" viewBox="0 0 489.7 154.3">
+                  <title aria-label="Aesop" id="aesop-:r18:">Aesop</title>
+                  <g>
+                    <path
+                      d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+                    </path>
+                    <path
+                      d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+                    </path>
+                    <path
+                      d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+                    </path>
+                    <path
+                      d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+                    </path>
+                    <path
+                      d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+                    </path>
+                    <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+                    <path
+                      d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+                    </path>
+                  </g>
+                </svg>
+              </div>
+              <h3 class="info-title">Aromatique Hand Balm</h3>
+              <div class="info-desc">
+                Soften the skin and provide sustained hydration.
+              </div>
+              <div class="info-price">
+                <div class="price-left">Aesop price: $33.00</div>
+                <div class="price-right">
+                  Due Today: $31.00
+                </div>
+              </div>
+              <div class="info-color">
+                <ul class="color-list">
+                  <li class="color-item">
+                    <div class="con">
+                      <div class="color color1"></div>
+                      <div class="color-text">Eleos</div>
+                    </div>
+                  </li>
+                  <li class="color-item">
+                    <div class="con">
+                      <div class="color color2"></div>
+                      <div class="color-text">Resurrection</div>
+                    </div>
+                  </li>
+                  <li class="color-item">
+                    <div class="con">
+                      <div class="color color3"></div>
+                      <div class="color-text">Reverence</div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="type-wrap">
+                  <div class="type-visual">
+                    <div class="type-title">
+                      <div class="type-color type-color1"></div>
+                      <div class="type-text">Eleos</div>
+                    </div>
+                    <div class="btn-down">
+                      <svg class="down-svg" width="6" height="5" viewBox="0 0 6 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.86603 4.5C3.48112 5.16667 2.51887 5.16667 2.13397 4.5L0.401924 1.5C0.0170235 0.833332 0.498149 -5.6841e-07 1.26795 -5.01112e-07L4.73205 -1.9827e-07C5.50185 -1.30972e-07 5.98298 0.833333 5.59808 1.5L3.86603 4.5Z" fill="currentColor"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <ul class="type-list">
+                    <li class="type-item">
+                      <div class="type">
+                        <div class="type-color type-color1"></div>
+                        <div class="type-text">Eleos</div>
+                      </div>
+                    </li>
+                    <li class="type-item">
+                      <div class="type">
+                        <div class="type-color type-color1"></div>
+                        <div class="type-text">Resurrection</div>
+                      </div>
+                    </li>
+                    <li class="type-item">
+                      <div class="type">
+                        <div class="type-color type-color1"></div>
+                        <div class="type-text">Reverence</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button class="info-order preorder-link btn--primary">
+                Add to your cart
+                <span class="link-icon">
+                  <svg class="svgi " aria-labelledby="symbol-arrow-right-desc-5" role="group">
+                    <use xlink:href="#svg-arrow-right"></use>
+                  </svg>
+                </span>
+              </button>
+              <div class="info-policy">
+                <span class="policy">
+                  All Aesop products are we do not test our formulations or ingredients on animals.
+                  <span class="point-btn link">Learn more</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sc-info4">
+      <h2 class="blind">Info 5</h2>
+      <div class="head-area">
+        <div class="head-number">5.</div>
+        <h3 class="head-title">FAQ</h3>
+      </div>
+      <ul class="content-list">
+        <li class="content-item">
+          <div class="number-box">5.1</div>
+          <div class="ask-box">What is the relationship between the Aesop Foundation and the company?</div>
+          <div class="question-box">
+            The Aesop Foundation receives an annual gift from Aesop which is part of the company’s public commitment to donate at least AUD$40 million to charitable causes by 2030. 
+            The Foundation shares its <a href="#" class="underline-opacity">name and values</a> with Aesop. 
+            Grant making is independent of business and the Foundation has its own <a href="#" class="underline-opacity">governance structure,</a> subject to UK charitable law. 
+            Grants made by the Foundation are for public benefit and can only be made to charitable organisations. 
+          </div>
+        </li>
+        <li class="content-item">
+          <div class="number-box">5.2</div>
+          <div class="ask-box">How does the Aesop Foundation make funding decisions?</div>
+          <div class="question-box">
+            The Aesop Foundation is governed <a href="#" class="underline-opacity">by a board of trustees.</a> 
+            Funding meetings, where proposals are presented for discussion, are held <a href="#" class="underline-opacity">throughout the year.</a> 
+            Partner grants are approved at the discretion of the trustees, in line with the Foundation’s strategy. 
+          </div>
+        </li>
+        <li class="content-item">
+          <div class="number-box">5.3</div>
+          <div class="ask-box">How is the Aesop Foundation governed?</div>
+          <div class="question-box">
+            The Foundation adheres to <a href="#" class="underline-opacity">UK charitable law</a> and 
+            has its own governance structure which is separate from Aesop the company.  
+          </div>
+        </li>
+        <li class="content-item">
+          <div class="number-box">5.4</div>
+          <div class="ask-box">How can I get in touch if I have any questions?</div>
+          <div class="question-box">
+            If you have any questions, please contact <a href="#" class="underline-opacity">foundation@aesop.com </a> 
+          </div>
+        </li>
+      </ul>
+      <div class="point-inner">
+        <a href="#" class="point-btn link">
+          <span class="link-text">Help Center</span>
+          <div class="link-plus-svg">
+            <svg class="svgi">
+              <use xlink:href="#svg-plus"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class="sc-gallery">
+      <h2 class="blind">Gallery</h2>
+      <div class="swiper">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <a href="#" class="slide">
+              <img src="./assets/images/g1.jpg" alt>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="#" class="slide">
+              <img src="./assets/images/g2.jpg" alt>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="#" class="slide">
+              <img src="./assets/images/g3.jpg" alt>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="#" class="slide">
+              <img src="./assets/images/g4.avif" alt>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="#" class="slide">
+              <img src="./assets/images/g5.jpg" alt>
+            </a>
+          </li>
+        </ul>
+        <div class="swiper-control">
+          <button class="btn prev">
+            <svg class="svgi " aria-labelledby="symbol-arrow-sm-left-desc-g" role="group">
+              <use xlink:href="#svg-arrow-sm-left"></use>
+            </svg>
+          </button>
+          <button class="btn next">
+            <svg class="svgi " aria-labelledby="symbol-arrow-sm-right-desc-h" role="group">
+              <use xlink:href="#svg-arrow-sm-right"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="sc-promotion">
+      <div class="promotion-inner">
+        <h2 class="blind">Promotion</h2>
+        <div class="group-slide marquee">
+          <div class="marquee-wrapper">
+            <div class="marquee-con">OUR MISSiON&nbsp;&nbsp;&nbsp;</div>
+            <div class="marquee-con">OUR MISSiON&nbsp;&nbsp;&nbsp;</div>
+            <div class="marquee-con">OUR MISSiON&nbsp;&nbsp;&nbsp;</div>
+          </div>
+        </div>
+        <div class="bottom-inner">
+          <div class="group-title">Aesop was established in 1987.</div>
+          <div class="group-text">
+            <p class="text">
+              We offer skin, hair and body care formulations created with meticulous attention to detail, and with efficacy and sensory pleasure in mind.
+            </p>
+            <p class="text">
+              Our objective has always been to formulate skin, hair and body care products of the finest quality; 
+              we investigate widely to source plant-based and laboratory-made ingredients, and use only those with a proven record of safety and efficacy. 
+            </p>
+          </div>
+          <div class="group-round round-text">
+            <span class="round"><span class="blind">round</span></span>
+            <span class="text">Aesop</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="svg">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <symbol fill="none" viewBox="0 0 10 9" id="svg-arrow-right" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="m6 2 2.5 2.5L6 7V2Z"></path>
+          <path stroke="currentColor" d="M1 1v3.5h7.5m0 0L6 2v5l2.5-2.5Z"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 30 30" id="svg-arrow-sm-left" xmlns="http://www.w3.org/2000/svg">
+          <path d="m19 24-8-9 8-9" stroke="currentColor" stroke-linecap="round"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 30 30" id="svg-arrow-sm-right" xmlns="http://www.w3.org/2000/svg">
+          <path d="m11 24 8-9-8-9" stroke="currentColor" stroke-linecap="round"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 16 16" id="svg-close" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="7.5" stroke="currentColor"></circle>
+          <path stroke="currentColor" stroke-linecap="round" d="m11 5-6 6m6 0L5 5"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 18 18" id="svg-info" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M9.25 8.333v4.584m0 4.583a8.25 8.25 0 1 1 0-16.5 8.25 8.25 0 0 1 0 16.5Zm.046-11.917v.092h-.092v-.092h.092Z"
+            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+        </symbol>
+        <symbol fill="none" viewBox="0 0 10 10" id="svg-plus" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="5" cy="5" r="4.5" stroke="currentColor"></circle>
+          <path d="M5 3.333v3.334M6.667 5H3.333" stroke="currentColor" stroke-linecap="round"></path>
+        </symbol>
+      </svg>
+    </div>
+  </main>
+  <footer id="footer">
+    <div class="footer-inner">
+      <h2 class="blind">Aesop footer</h2>
+      <div class="group-info">
+        <div class="insider-area">
+          <div class="title">INSIDER CIRCLE</div>
+          <div class="con-inner">
+            <h3 class="logo">
+              <svg aria-labelledby="aesop-:r18:" class="footer-logo cursor-poiner" data-testid="data-testid-Icon"
+                focusable="false" height="25" role="img" tabindex="-1" viewBox="0 0 489.7 154.3" width="114">
+                <title aria-label="Aesop" id="aesop-:r18:">Aesop</title>
+                <g>
+                  <path
+                    d="M48.6,22.5L31.8,62.2h34.2L48.6,22.5z M28.6,70.3c-3.2,7.4-9.6,21.7-14.9,42c-1.9-0.3-3.5-0.9-6.6-0.9c-3.1,0-5,0.6-7.1,0.9C14.3,81.2,38,28.9,49.4,0c1.3,0.2,2.3,0.5,4,0.5c1.4,0,2.3-0.2,3.5-0.5c12.3,33.7,47.8,111.7,48.1,112.3c-2.7-0.5-5.5-0.9-9.5-0.9c-4.2,0-7.2,0.5-10.3,0.9c-5.6-19.2-12.2-33.2-16.2-42H28.6z">
+                  </path>
+                  <path
+                    d="M172.4,66.6c0-5.3,0-26.6-19.2-26.6c-14,0-20.7,10.6-22.2,26.6H172.4z M130.9,73.3c0,4.5,0,13.6,4.3,21c7.4,12.1,17.8,12.5,22.5,12.5c15.7,0,23.1-9.6,25.5-13l1.9,0.4c-1,4.5-1,7.1-1.1,9.6c-7.1,6.7-16.8,10.5-29.8,10.5c-24.4,0-39.3-15.4-39.3-40.1c0-22.1,12.2-40.7,38.5-40.7c35.8,0,35.3,31.1,35.1,39.8H130.9z">
+                  </path>
+                  <path
+                    d="M249.6,52.1c-0.6-2.4-1.6-6.4-6.2-9.6c-3.4-2.4-7.8-2.7-10.4-2.7c-9.8,0-14.9,5.1-14.9,12c0,9.3,9.5,12.7,15.1,14.1c14.3,3.7,25.8,6.7,25.8,22.8c0,12.2-8.5,25.8-30.8,25.8c-13,0-22-5.5-23.7-6.7c2.1-3.9,3.4-10.7,3.7-12.8l1.9-0.5c1.1,2.7,2.7,7.1,8.7,10.6c4,2.4,8.2,3,11.7,3c8.4,0,16.2-4,16.2-13.2c0-9.1-5.5-10.9-22.3-16.4c-6.9-2.3-18.3-7.2-18.3-21.3c0-9.1,5.6-23.9,27.8-23.9c11.1,0,17.5,3.4,21.2,5.3c-1.6,4.2-2.7,8-3.2,13.5H249.6z">
+                  </path>
+                  <path
+                    d="M291.5,73.5c0,22.3,9.8,34.6,24.5,34.6c15.4,0,25.5-13.3,25.5-34.5c0-12.5-3.9-33.8-24.7-33.8C291.5,39.8,291.5,68.6,291.5,73.5 M357.9,73c0,25.5-17.6,41.5-42,41.5c-17,0-40.8-7.7-40.8-40.6c0-25,16.7-40.6,40.8-40.6 C346.3,33.4,357.9,53.4,357.9,73">
+                  </path>
+                  <path
+                    d="M399.4,49.6c-3.2,4-6.6,9.8-6.6,25.7c0,14.1,3.2,19.4,6.6,23.4c4.1,5,9.6,7.9,17,7.9 c22.9,0,22.9-27.1,22.9-32.3c0-24.2-11.6-33-22-33C408.7,41.2,403.1,44.9,399.4,49.6 M419.3,114.7c-15.1,0-23.6-8.3-26.2-14.9 c0,25.2-0.2,39.8,0.8,54.5c-2.4-0.6-4.5-0.9-8.4-0.9c-4,0-6.1,0.3-8.6,0.9c1.3-20.8,1.8-41.9,1.8-62.7c0-14.6-0.3-34.3-0.8-57.6 c2.2,0.5,4.8,0.9,7.9,0.9c2.9,0,5.6-0.5,7.9-0.9c-0.6,8.8-0.6,11.2-0.6,14.6c2.6-4.2,9.5-15.4,27.3-15.4c16,0,35.6,11.7,35.6,40.3 C455.9,98.8,440.3,114.7,419.3,114.7">
+                  </path>
+                  <rect x="131.8" y="13.5" width="44.3" height="5"></rect>
+                  <path
+                    d="M477.2,98.1c0,1.6,0,3,0,4.4c1.3,0,4.3,0,4.3-2.3C481.5,98.1,479.2,98.1,477.2,98.1 M484.9,109.1 c-0.4,0-0.7-0.1-1.2-0.1c-0.4,0-0.8,0.1-1.5,0.1c-2-2.9-3.6-4.5-4.7-5.8h-0.4c0,1.8,0,3.2,0.2,5.8c-0.5,0-0.7-0.1-1.3-0.1 c-0.6,0-0.8,0.1-1.1,0.1c0.1-1.3,0.2-2.7,0.2-6.2c0-3-0.1-4.4-0.1-5.7c0.9,0,1.5,0,2.9,0c2.9,0,5.9,0,5.9,2.8c0,2.5-2.7,2.9-3.9,3 c0.8,1.1,4.4,5.1,5.1,5.9L484.9,109.1z M479.2,94.8c-4.8,0-8.5,3.8-8.5,8.6c0,4.9,3.6,8.6,8.5,8.6c4.9,0,8.5-3.7,8.5-8.6 C487.8,98.7,484.3,94.8,479.2,94.8 M479.2,92.9c5.9,0,10.5,4.7,10.5,10.5c0,5.9-4.7,10.5-10.5,10.5c-5.8,0-10.5-4.6-10.5-10.5 C468.8,97.5,473.5,92.9,479.2,92.9">
+                  </path>
+                </g>
+              </svg>
+            </h3>
+            <form class="insider-form">
+              <p class="insider-text">
+                Subscribe to receive communications from Aesop.</p>
+              <input type="text" placeholder="Email" class="insider-input">
+              <div class="info-order-short">
+                <span class="order-text">Become a member</span>
+                <button class="order-btn">
+                  <svg class="svgi " aria-labelledby="symbol-arrow-right-desc-a" role="group">
+                    <use xlink:href="#svg-arrow-right"></use>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="contact-area">
+          <div class="title">contact</div>
+          <div class="con-inner">
+            <div class="contact-mail link">hello@Aesop.com</div>
+          </div>
+        </div>
+        <div class="information-area">
+          <div class="title">information</div>
+          <div class="con-inner">
+            <ul class="infor-list">
+              <li class="infor-item">
+                <a href="#" class="link">Orders and support</a>
+              </li>
+              <li class="infor-item">
+                <a href="#" class="link">Services</a>
+              </li>
+              <li class="infor-item">
+                <a href="#" class="link">Location preferences</a>
+              </li>
+              <li class="infor-item">
+                <a href="#" class="link">Sustainability</a>
+              </li>
+              <li class="infor-item">
+                <a href="#" class="link">About</a>
+              </li>
+              <li class="infor-item">
+                <a href="#" class="link">Help Center</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="social-area">
+          <div class="title">social media</div>
+          <div class="con-inner">
+            <ul class="social-list">
+              <li class="social-item">
+                <a href="#" class="link">Instagram</a>
+              </li>
+              <li class="social-item">
+                <a href="#" class="link">LinkedIn</a>
+              </li>
+              <li class="social-item">
+                <a href="#" class="link">Pinterest</a>
+              </li>
+              <li class="social-item">
+                <a href="#" class="link">X</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="group-copy">
+        <div class="copy-area">
+          <small class="copy">© 2025. Aesop. All right reserved </small>
+        </div>
+        <div class="policy-area">
+          <a href="#" class="link">Terms</a>,
+          <a href="#" class="link">Privacy Policy</a>,
+          <a href="#" class="link">Cookies policy</a>
+        </div>
+        <div class="agency-area">
+          <a href="#" class="agency">Website by Obys</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
