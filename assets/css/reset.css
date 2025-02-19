@@ -32,7 +32,6 @@ body {
   background: var(--primary-color);
 }
 
-/* 반응형 */
 @media screen and (max-width: 1440px) {
   html {
     font-size: 10px;

@@ -1661,6 +1661,7 @@
     opacity: 0;
   }
 }
+
 @media screen and (max-width: 1280px) { 
   .sc-product .group-product .desc-area {
     font-size: 2rem;
@@ -1772,7 +1773,6 @@
   .sc-info3 .group-info4 .bg-wrap img {
     height: 100%;
   }
-  /* sc-order3 */
   .sc-order3 .group-title {
     font-size: 9rem;
   }
@@ -1922,7 +1922,6 @@
     left: 0%;
     top: 0%;
   }
-  /* sc-order1 */
   .sc-order1 .persent {
     font-size: 5.6rem;
     letter-spacing: -.02em;
@@ -1934,7 +1933,6 @@
     max-width: 15rem;
     margin: 0 auto;
   }
-
   .sc-info1 {
     padding-bottom: 10rem;
   }
