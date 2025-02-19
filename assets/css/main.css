@@ -253,7 +253,7 @@
 }
 .sc-product .group-desc .desc-list {
   width: auto;
-  height: 230px;
+  height: 250px;
   max-width: 31rem;
   position: absolute;
   top: 7.6rem;
@@ -380,8 +380,8 @@
 }
 .sc-product .group-performance .connect-svg {
   position: absolute;
-  top: 55%;
-  left: 41.9%;
+  top: 28em;
+  left: 42.6em;
 }
 .sc-product .group-performance .connect-svg svg {
   width: 7.3rem;
@@ -1656,6 +1656,11 @@
   align-items: flex-start;
 }
 
+@media screen and (max-width: 1440px) {
+  .sc-product .group-performance .connect-svg {
+    opacity: 0;
+  }
+}
 @media screen and (max-width: 1280px) { 
   .sc-product .group-product .desc-area {
     font-size: 2rem;
@@ -1693,9 +1698,6 @@
   }
   .sc-product .group-desc .bg {
     object-position: 0vh calc(1vh * var(--progress));
-  }
-  .sc-product .group-performance .connect-svg {
-    opacity: 0;
   }
   .sc-product .group-performance .desc-list {
     height: 250px;
@@ -2010,6 +2012,7 @@
   }
   .sc-order3 .group-product .product-wrap {
     column-gap: 4rem;
+    padding: 5rem 2rem 15rem 2rem;
   }
   .sc-order3 .group-product .point-area {
     display: none;
