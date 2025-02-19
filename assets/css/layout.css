@@ -591,8 +591,6 @@ margin-left: 2.5rem;
   #footer .group-info .contact-mail {
     font-size: 2rem;
   }
-  
-
 } 
 
 @media screen and (max-width: 768px) { 
@@ -617,5 +615,16 @@ margin-left: 2.5rem;
   #footer .group-copy {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  #header {
+    width: 100vw;
+  }
+  #header .nav-mo .group-head {
+    width: 100vw;
+  }
+  #header .nav-mo .group-nav .nav-list {
+    font-size: 2rem;
   }
 }

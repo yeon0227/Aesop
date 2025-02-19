@@ -146,10 +146,6 @@ product
     ease:'none',
     y:280
   },'a')
-  // .to('.sc-product .group-product .lamp-inner',{
-  //   yPercent:8,
-  //   scale: 0.8,
-  // },'a');
 
 // sc-product .group-desc background scale
 gsap.to('.sc-product .group-desc .bg', {
@@ -233,25 +229,37 @@ const performance = gsap.timeline({
 })
 performance
   .to('.sc-product .group-performance .desc-item', 1,{
-    yPercent:-100,
+    yPercent: -100,
     ease: "none",
   },'a')
   .to('.sc-product .group-performance .perform-item:nth-child(2)', 1, {
     yPercent: -100,
   },'a')
+  .to('.sc-product .group-performance .connect-svg',{
+    'top': '41%',
+    'left': '37.5%',
+  },'a')
   .to('.sc-product .group-performance .desc-item',1,{
-    yPercent:-200,
+    yPercent: -200,
     ease: "none",
   },'b')
   .to('.sc-product .group-performance .perform-item:nth-child(3)',1, {
     yPercent: -200,
   },'b')
+  .to('.sc-product .group-performance .connect-svg',{
+    'top': '53%',
+    'left': '28%',
+  },'b')
   .to('.sc-product .group-performance .perform-item:nth-child(4)',1, {
     yPercent: -300,
   },'c')
   .to('.sc-product .group-performance .desc-item',1,{
-    yPercent:-300,
+    yPercent: -300,
     ease: "none",
+  },'c')
+  .to('.sc-product .group-performance .connect-svg',{
+    'top': '24%',
+    'left': '48%',
   },'c')
 
 // .sc-order1
@@ -365,7 +373,6 @@ info2
   .from('.sc-info1 .group-info2 .head-title',1, { opacity: 0, y: 40 },'a')
   .from('.sc-info1 .group-info2 .img-wrap video',1, { opacity: 0, y: 40, },'b+=1')
   .from('.sc-info1 .group-info2 .order',1, { opacity: 0, scale: 0, },'b+=2')
-  .from('.sc-info1 .group-info2 .desc',2, { opacity: 0, y:40, },'c+=3')
 
 // .sc-order2
 const order2 = gsap.timeline({
@@ -409,9 +416,9 @@ info3
   .from('.sc-info2 .group-info3 .head-title',0.5, { opacity: 0, y: 40 },'a')
   .from('.sc-info2 .group-info3 .info-title .title',0.1, { opacity: 0, stagger:0.1, },'b')
   .from('.sc-info2 .group-info3 .desc',0.1, { opacity: 0, stagger:0.1, },'b')
-  .from('.sc-info2 .group-info3 .info-img',0, { opacity: 0, },'b')
+  .from('.sc-info2 .group-info3 .info-img-wrap',0, { opacity: 0, },'b')
   .from('.sc-info2 .group-info3 .point-link',0.1, { opacity: 0, },'b+=0.3')
-  .to('.sc-info2 .group-info3 .info-img',1, { y:90, },'c')
+  .to('.sc-info2 .group-info3 .info-img',1, { y:50, },'c')
 
 // .sc-info2 .group-benefit
 const benefit = gsap.timeline({
@@ -609,7 +616,6 @@ info5
 // sc-gallery swiper slide
 const gallerySlide = new Swiper('.sc-gallery .swiper', {
   speed: 1000,
-  // slidesPerView: 1.9,
   freeMode: true,
   spaceBetween: 20,
   centeredSlides:true,
@@ -657,4 +663,4 @@ const promotion = gsap.timeline({
 promotion
   .from('.sc-promotion .bottom-inner .group-title',1, { opacity: 0, y: 40, },'a+=0.5')
   .from('.sc-promotion .group-text .text',1, { opacity: 0, y: 40, stagger:0.3 },'a+=0.5')
-  .from('.sc-promotion .bottom-inner .group-round',1, { opacity: 0, y: 40,  },'a+=0.5')
+  .from('.sc-promotion .bottom-inner .group-round',1, { opacity: 0, y: 40,  },'a+=0.5');
