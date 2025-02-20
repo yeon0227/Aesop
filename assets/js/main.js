@@ -10,12 +10,6 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 
-// scroll
-// window.addEventListener('load', function () {
-//   window.scrollTo(0, 0); 
-//   gsap.to(window, { duration: 1 }); 
-// });
-
 // header background color 
 let lastScroll = 0;
 $(window).scroll(function () { 
@@ -63,27 +57,8 @@ navMobile
   .from('#header .nav-mo .group-btn',1, { opacity: 0, },'>-=1')
   .from('#header .nav-mo .group-policy .policy',1, { opacity: 0, y: 40, stagger:0.3, },'>-=1')
 
-// .sc-product .group-product
-// let scrollPosition = 0;
-
-// const blockScroll = () => {
-//   scrollPosition = window.pageYOffset; // 현재 스크롤 위치 저장
-//   document.body.style.position = 'fixed';
-//   document.body.style.top = `-${scrollPosition}px`; // 스크롤 고정
-//   document.body.style.width = '100%'; // 페이지가 흔들리지 않도록 설정
-// };
-
-// const allowScroll = () => {
-//   document.body.style.position = ''; // 스크롤 고정 해제
-//   document.body.style.top = ''; // 원래 위치로 복원
-//   window.scrollTo(0, scrollPosition); // 저장된 위치로 스크롤 복원
-// };
-
 const percent = document.querySelector('.percent');
-const visual = gsap.timeline({
-  // onStart: blockScroll, // 애니메이션 시작 시 스크롤 차단
-  // onComplete: allowScroll // 애니메이션 완료 후 스크롤 복원
-});
+const visual = gsap.timeline({});
 
 visual
   .to('#header .percent', { autoAlpha: 1 }, 'a') 
